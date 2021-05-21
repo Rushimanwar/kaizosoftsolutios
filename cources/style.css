@@ -1,0 +1,471 @@
+/* font import */
+
+@font-face {
+    font-family:'Poppins';
+    src: url(../font/Poppins-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+.container{
+    padding: 0 5%;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.active{
+    color: #fff;
+    font-weight: bold;
+}
+/* scrollbar */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: rgb(252, 220, 226);
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(245, 177, 191);
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(255, 167, 185);
+}
+::-webkit-scrollbar-thumb:active{
+    background-color: rgb(248, 119, 145);
+}
+
+/* selection */
+::selection{
+    background: crimson;
+    color: #fff;
+}
+
+
+
+/* header */
+header{
+    width: 100%;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 1);
+    filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, 0.336));
+    z-index: 1;
+
+}
+header .logo{
+    padding: 5px;
+}
+header .logo img{
+    width: 50px;
+}
+header nav {
+    width: 50%;
+    height: 50px;
+    position: absolute;
+    background-color: crimson;
+    display: flex;
+    float: right;
+    text-align: right;
+    place-items: right;
+    justify-content:space-evenly;
+    padding:0 100px;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    clip-path: polygon(0 100%,10% 0%,100% 0%,100% 100%);
+}
+header nav li{
+    list-style: none;
+    margin:10px 5px;
+    float: right;
+}
+header nav li a{
+    padding:3px;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+header nav li a::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;bottom: 0;
+    background: #fff;
+    transition: .3s ease
+}
+
+header nav li a:hover::before{
+    width: 100%;
+}
+
+/* main background */
+
+.main-background {
+    background: radial-gradient(rgba(0, 0, 0, 0.0774),rgba(22, 21, 21, 0.122)),linear-gradient(320deg,  rgb(46, 34, 34),rgba(0, 0, 255, 0.397)),url(bg.jpg);
+    background-size: 100vw 75vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    padding: 210px;
+    font-size: 55px;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+
+}
+.main-background h1{
+    text-align: center;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+
+}
+header input {
+    position: absolute;
+   display: none;
+}
+header label img{
+    margin: 5px;
+    width: 20px;
+}
+
+header label {
+    float: end;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background:url(../images/bars.svg) no-repeat ;
+    margin: 5px 7px;
+    transition:.3s ease;
+}
+header #check-in:checked~label {
+    background: url(../images/times.svg);
+    background-repeat: no-repeat;
+}
+.check-in{
+    display: none;
+}
+
+/* courses */
+
+.courses{
+    width: 100%;
+    padding: 0 5%;
+}
+.courses .title{
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+.courses .title h1::after{
+    content: " \2663 ";
+    position: absolute;
+    width: 40px;
+    height: 15px;
+    left: 50%;
+    bottom: 0;
+    font-size: 20px;
+    color: crimson;
+    transform: translate(-50%);
+    background-color: rgb(255, 255, 255);
+}
+.courses .title h1::before{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 2px;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%);
+    background-color: crimson;
+}
+.courses .title h1{
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #111;
+}
+
+.wrapper {
+    display: grid;
+    margin: 50px  auto;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+@media (max-width: 700px) {
+    .wrapper {
+        margin: 200px auto;
+    }
+}
+
+.wrapper .box {
+    width: 350px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 1000px;
+}
+
+.wrapper .box .front-face {
+    background: #fff;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+    transition: all 0.5s ease;
+}
+
+.box .front-face .icon {
+    height: 80px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.box .front-face span,
+.box .back-face span {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.box .front-face .icon img{
+    width: 80px;
+    height: 80px;
+}
+.box .front-face .icon img,
+.box .front-face span {
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.box .back-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 200px;
+    width: 100%;
+    padding: 30px;
+    color: #fff;
+    opacity: 0;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    transform: translateY(110px) rotateX(-90deg);
+    box-shadow: 0px 5px 20px 0px rgba(0, 81, 250, 0.1);
+    transition: all .3s ease;
+}
+
+.box .back-face p {
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.box:hover .back-face {
+    opacity: 1;
+    transform: rotateX(0deg);
+}
+
+.box .back-face a{
+    text-decoration: none;
+    text-transform: capitalize;
+    float: right;
+    color: rgb(238, 240, 246);
+}
+
+.box .back-face a:hover{
+    color: blue;
+}
+.box .back-face a:active{
+    color: rgb(0, 255, 0);
+}
+.box:hover .front-face {
+    opacity: 0;
+    transform: translateY(-110px) rotateX(90deg);
+}
+ /* footer */
+
+ footer{
+     background-color: #222;
+     color: #fff;
+     text-align: center;
+     padding: 10px;
+ }
+ footer h1{
+     font-size: 15px;
+     text-transform: capitalize;
+     
+ }
+
+ /* responsive media query */
+
+ @media (max-width: 980px){
+    header nav{
+        position: absolute;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        top: 0;
+        left: -100%;
+        clip-path: none;
+        background-color: #333;
+        transition: all 0.3s ease;
+
+   }
+    header nav li{
+        padding: 30px 0;
+   }
+    header nav li a{
+        color: #fff;
+        border: none;
+   }
+    header .check-in{
+       display: block;
+       z-index: 10;
+   }
+    header .check-in:active{
+        background-color: rgba(61, 78, 124,0.2);
+   }
+    header #check-in:checked~nav{
+        left: 0;
+   }
+   .active{
+       color: crimson;
+   }
+    
+}
+
+@media (max-width: 770px){
+    .main-background{
+        padding: 0;
+        margin: 0;
+    }
+    .main-background h1{
+        padding:20% 40% ;
+        margin: 0;
+        width: 100%;
+        font-size:30px;
+    }
+    .courses .title h1{
+        font-size: 20px;
+        padding: 15px;
+    }
+    
+    
+.courses .content .box .card{
+    width: 320px;
+}
+.courses .content .box .card .img img{
+    width: 100%;
+}
+}
+@media (max-width:680px){
+     
+.main-background button{
+   padding: 10px;
+}
+.main-background button a{
+   font-size: 15px;
+}
+}
+@media (max-width: 580px){
+   .main-background{
+       padding: 0px;
+   }
+    .main-background h1{
+        font-size:25px;
+    }  
+    .main-background button{
+        padding: 10px;
+    }
+    .main-background button a{
+        font-size: 13px;
+    }
+    .courses .title h1{
+        font-size: 17px;
+        padding: 15px;
+    }
+    footer h1{
+        font-size: 10px;
+    }
+   
+i img {
+    margin: 0 5px;
+    width: 10px;
+}
+}
+@media (max-width: 480px){
+   .main-background{
+   padding: 0px;
+}   
+.main-background button{
+   padding: 0px;
+}
+.main-background button a{
+   font-size: 13px;
+}
+.main-background h1{
+    width: 100%;
+    font-size:20px;
+}
+.courses .title h1{
+    font-size: 15px;
+    padding: 15px;
+}
+   
+}
+@media (max-width: 320px){
+   .main-background{
+       padding: 0px;
+   }
+    .main-background h1{
+        font-size:15px;
+    }  
+    .main-background button{
+        padding: 5px 10px;
+    }
+    .main-background button a{
+        font-size: 10px;
+    }
+    .courses .title h1{
+        font-size: 13px;
+        padding: 15px;
+    }
+   
+}
+@media (max-width:280px){
+    .main-background{
+        margin: 0;padding: 0;
+        width: 100%;
+    }
+    .main-background h1{
+        width: 100%;
+        padding: 40% 40%;
+    }
+    button a{
+        font-size: 8px;
+    }
+    i img {
+        margin: 0 3px;
+        width: 7px;
+    }
+}
